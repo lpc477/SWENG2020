@@ -22,10 +22,13 @@ function App() {
 
 // The following return value is just to let us know if we are connected to the MockBot
 // When running the app, it should switch from "Not Connected!" to "Connected!" quickly
+
   return (
 	<div>
 		<h1>{(!!directLine === true) ? "Connected!" : "Not connected!"}</h1>
-		//<AscToolsWebChat />
+		<Components.Composer directLine={directLine}>
+          <AscToolsWebChat />
+        </Components.Composer>
 	</div>
   );
 }
