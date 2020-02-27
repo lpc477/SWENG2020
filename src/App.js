@@ -1,6 +1,7 @@
 import { Components } from 'botframework-webchat-component';
 import { createDirectLine } from 'botframework-webchat';
 import React from 'react';
+
 import AscToolsWebChat from "./AscToolsWebChat";
 
 var connected = false;
@@ -26,9 +27,11 @@ function App() {
   return (
 	<div>
 		<h1>{(!!directLine === true) ? "Connected!" : "Not connected!"}</h1>
-		<Components.Composer directLine={directLine}>
+		{!!directLine && (
+        <Components.Composer directLine={directLine}>
           <AscToolsWebChat />
         </Components.Composer>
+      )}
 	</div>
   );
 }
