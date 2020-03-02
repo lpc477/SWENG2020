@@ -67,10 +67,12 @@ function AscToolsWebChat() {
 	// At the moment this JS file is not displaying anything. 
 	
 	return(
-		<div>
+		<div >
 			<form onSubmit={handleSubmit}>
 			  <input autoFocus={true} onChange={handleChange} type="textbox" value={sendBoxValue} />
+			  <div style={{display:"flex", flexDirection:"column-reverse", alignItems:"flex-end"}}>
 			  {textBoxes}
+			  </div>
 			</form>
 		</div>
 	)
