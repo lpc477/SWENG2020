@@ -1,5 +1,8 @@
 import { hooks } from 'botframework-webchat-component';
 import React, { useCallback, useState } from 'react';
+import TextBox from "./TextBox.js";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { findByLabelText } from '@testing-library/react';
 
 const { useActivities, useSendMessage } = hooks;
 
@@ -29,7 +32,17 @@ function AscToolsWebChat() {
       sendMessage(sendBoxValue);
       setSendBoxValue('');
     },
-    [sendBoxValue, sendMessage, setSendBoxValue]);
+	[sendBoxValue, sendMessage, setSendBoxValue]);
+	
+	console.log(activities);
+
+	activities.filter(({ type }) => type === 'message');
+
+	var textBoxes = activities.map(thisMessage => <TextBox 
+														key={thisMessage.id}
+														user={thisMessage.from.role} 
+														time={thisMessage.timestamp.substring(11, 19)}
+														message={thisMessage.text}/>);
 
 	/*
 	We can filter activites by their properties, this is how the default app filters them but
@@ -57,6 +70,7 @@ function AscToolsWebChat() {
 		<div>
 			<form onSubmit={handleSubmit}>
 			  <input autoFocus={true} onChange={handleChange} type="textbox" value={sendBoxValue} />
+			  {textBoxes}
 			</form>
 		</div>
 	)
