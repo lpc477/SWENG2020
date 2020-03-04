@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+footer {
+  background-color:green;
+  position: fixed;
+  bottom: 0;
+  height: 20vh;
+  width: 100%;
+}
+
+footer > form {
+  position: fixed;
+  right: 0;
+}
+
+.MessageList {
+  width: 100vw;
+  height: 80vh;
+  position: absolute;
+}
+
+.WindowBackground {
+  background-color: #c1d5e0;
+  /* background-image: url("./logo-transparent.svg"); */
+  background-size: 50vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+}

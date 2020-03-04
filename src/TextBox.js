@@ -7,10 +7,13 @@ function TextBox(props) {
     var userName = "";
     if (props.user == "bot") {
         userName = "Asclepius.Tools";
-        thisStyle = {alignSelf: "flex-start"};
+        thisStyle = {position: 'relative', left:10};
+        
     }
     else{ // if(props.user = "user") 
         userName = "You";
+        // NEED TO FIX THIS, WILL NOT DISPLAY THE USERS MESSAGES CORRECTLY AS-IS
+        thisStyle = {position: 'relative', right: "-80%"};
     }
 
     return (

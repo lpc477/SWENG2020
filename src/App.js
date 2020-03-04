@@ -26,7 +26,6 @@ function App() {
 
   return (
 	<div>
-		<h1>{(!!directLine === true) ? "Connected!" : "Not connected!"}</h1>
 		{!!directLine && (
         <Components.Composer directLine={directLine}>
           <AscToolsWebChat />
