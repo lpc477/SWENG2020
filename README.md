@@ -1,2 +1,3 @@
-# SWENG2020
-Repo for Group 32
+# ASCLEPIUS.TOOLS: AI assisted lifestyle diagnoses and advice
+
+Group 32
