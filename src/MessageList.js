@@ -37,8 +37,7 @@ function MessageList() {
 		  
 	*/
 
-    activities.filter(({ type }) => type === 'message')
-              .filter(({ channelData: { postBack } = {}, from: { role } }) => !(role === 'user' && postBack));
+    activities.filter(({ type }) => type === 'message');
 
     var textBoxes = activities.map(thisMessage => <TextBox
         key={thisMessage.id}

@@ -7,13 +7,12 @@ function TextBox(props) {
     var userName = "";
     if (props.user == "bot") {
         userName = "Asclepius.Tools";
-        thisStyle = {position: 'relative', left:10};
+        thisStyle = {alignSelf: "flex-start", flexShrink:0, minWidth:"100px", marginLeft: "1%"};
         
     }
     else{ // if(props.user = "user") 
         userName = "You";
-        // NEED TO FIX THIS, WILL NOT DISPLAY THE USERS MESSAGES CORRECTLY AS-IS
-        thisStyle = {position: 'relative', right: "-80%"};
+        thisStyle = {alignSelf: "flex-end", flexShrink:0, minWidth:"100px", marginRight: "1%"};
     }
 
     return (
@@ -23,7 +22,8 @@ function TextBox(props) {
                 <small>{props.time}</small>
             </Toast.Header>
             <Toast.Body>{props.message}</Toast.Body>
-        </Toast>);
+        </Toast> 
+    );
 }
 
 export default TextBox;
