@@ -28,7 +28,7 @@ function ChatInput() {
 	// Since we're using a textarea for input, I had to create this function so that if the user presses enter
 	// it sends the sendBoxValue, instead of skipping to a new line. 
 	const onEnterPress = (e) => {
-		if(e.keyCode == 13 && e.shiftKey == false) {
+		if(e.keyCode === 13 && e.shiftKey === false) {
 			e.preventDefault();
 			sendMessage(sendBoxValue);
 			setSendBoxValue('');
