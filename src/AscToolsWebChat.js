@@ -13,7 +13,7 @@ function AscToolsWebChat() {
 	return(
 		<div>
 			<div className="WindowBackground">
-				<MessageList />
+				<MessageList/>
 				<ChatInput />
 			</div>
 			

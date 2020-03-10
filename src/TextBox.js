@@ -7,12 +7,12 @@ function TextBox(props) {
     var userName = "";
     if (props.user === "bot") {
         userName = "Asclepius.Tools";
-        thisStyle = {alignSelf: "flex-start", flexShrink:0, minWidth:"100px", marginLeft: "1%"};
+        thisStyle = {alignSelf: "flex-start", flexShrink:0, minWidth:"100px", marginLeft: "1vw"};
         
     }
     else{ // if(props.user = "user") 
         userName = "You";
-        thisStyle = {alignSelf: "flex-end", flexShrink:0, minWidth:"100px", marginRight: "1%"};
+        thisStyle = {alignSelf: "flex-end", flexShrink:0, minWidth:"100px", marginRight: "1vw"};
     }
 
     return (
