@@ -5,7 +5,7 @@ import Toast from 'react-bootstrap/Toast';
 function TextBox(props) {
     var thisStyle = {};
     var userName = "";
-    if (props.user == "bot") {
+    if (props.user === "bot") {
         userName = "Asclepius.Tools";
         thisStyle = {alignSelf: "flex-start", flexShrink:0, minWidth:"100px", marginLeft: "1vw"};
         
