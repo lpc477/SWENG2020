@@ -1,13 +1,19 @@
 import { Components } from 'botframework-webchat-component';
 import { createDirectLine } from 'botframework-webchat';
 import React from 'react';
-
 import AscToolsWebChat from "./AscToolsWebChat";
 
+
 var connected = false;
+const secret = process.env.DIRECT_LINE_SECRET;
 
 async function getDirectLineToken() {
-  const res = await fetch('https://webchat-mockbot.azurewebsites.net/directline/token', { method: 'POST' });
+  const res = await fetch('https://directline.botframework.com/v3/directline/tokens/generate', { method: 'POST', 
+//  mode: 'no-cors',
+  headers: {
+//      'Content-Type': 'application/json',
+      'Authorization': 'Bearer jnLsvivnLz0.YXh4pTEiXu_VSWzg6aEHwmPpVMPvq_Tkg8T51EHsR7A'
+      }});
   const { token } = await res.json();
 
   return token;
