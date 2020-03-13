@@ -33,7 +33,7 @@ footer {
 
 .MessageList {
   width: 100%;
-  height: 80vh;
+  height: 85vh;
   margin-top: 1vh;
   display: flex;
   flex-direction: column;
@@ -46,7 +46,7 @@ footer {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  min-height: 100vh;
+  height:100vh;
   display: flex;
   flex-direction: column;
 }
