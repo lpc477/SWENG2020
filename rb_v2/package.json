@@ -1,0 +1,36 @@
+{
+    
+    "dependencies": {
+        "bootstrap": "4.3.1",
+        "botframework-webchat": "^4.8.0",
+        "botframework-webchat-component": "^4.8.0",
+        "jquery": "3.4.1",
+        "react": "^16.13.0",
+        "react-bootstrap": "^1.0.0-beta.17",
+        "react-dom": "^16.13.0",
+        "react-expanding-textarea": "^2.2.0",
+        "react-router": "^5.1.2",
+        "react-scripts": "^3.4.0",
+        "react-scroll-to": "^3.0.0-beta.6",
+        "react-scrollable-feed": "^1.1.2",
+        "scripts": "^0.1.0"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+      },
+    "devDependencies": {
+        "browser-sync": "2.26.7",
+        "del": "5.1.0",
+        "gulp": "4.0.2",
+        "gulp-autoprefixer": "7.0.0",
+        "gulp-clean-css": "4.2.0",
+        "gulp-header": "2.0.9",
+        "gulp-plumber": "^1.2.1",
+        "gulp-rename": "1.4.0",
+        "gulp-sass": "4.0.2",
+        "merge-stream": "2.0.0"
+    }
+}
