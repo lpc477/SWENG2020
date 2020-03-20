@@ -1,3 +1,5 @@
+## This repo has been moved to https://github.com/steviejeebies/AscToolsChat in order to render it as a Github Page. Any changes made in this branch will not be seen on https://steviejeebies.github.io/AscToolsChat .
+
 <<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
