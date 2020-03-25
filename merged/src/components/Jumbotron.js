@@ -5,12 +5,15 @@ import boatImage from '../assets/boatImage.jpg';
 
 const Styles = styled.div`
   .jumbo {
-    background: url(${boatImage}) no-repeat fixed bottom;
-    background-size: cover;
+    background: url(${boatImage}) no-repeat fixed top;
+    background-size: auto;
+    background-origin: border-box
     color: #efefef;
+    background-color: #C1D5E0;
     height: 350px;
-    position: relative; 
-    z-index: -2; 
+    z-index: -1; 
+    padding-left:0px;
+    padding-right:0px
   }
 
   .overlay {
@@ -33,7 +36,7 @@ export const Jumbotron = () => (
       <div class="col-lg-8 order-lg-1">
           <div class="p-5">
             <h2 class="display-1">Welcome</h2>
-            <p class="display-4">A lifestyle recommendation app!</p>
+            <h3 class="display-5">A lifestyle recommendation app!</h3>
           </div>
         </div>
       
