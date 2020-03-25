@@ -1,71 +1,50 @@
-<<<<<<< HEAD
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Asclepius.Tools
 
-## Available Scripts
+## What's in this Repo
 
-In the project directory, you can run:
+  - **RW** - Full React Website for Asclepius Tools (*FULL_WEBSITE_VERSION*)
+  - **BE** - A Web Extension for Firefox and Chrome that consists of just the Web Chat UI to Asclepius Tools as a browser drop- down (*BROWSER_EXTENSION_VERSION*)
+  - **RC** - A version of the React Website that renders only the Web Chat page (*WEB_CHAT_ONLY_VERSION*)
+  - The source code for the Web Chat UI itself that is shared across the above three versions, that can be edited only once to update all versions (*WEB_CHAT_SOURCE_CODE*)
 
-### `npm start`
+### The RW is available at https://steviejeebies.github.io/SWENG2020/
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How to Use
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+You will need **Node.js** and **Yarn** installed in order to develop or run the following locally.
 
-### `npm test`
+The folder **WEB_CHAT_SOURCE_CODE** contains files that are necessary to run the Web Chat UI in all three versions of the application. Due to restrictions with *create-react-app* not allowing us to import component files outside of a given app's own *src* folder, we weren't able to have the source code in one folder that RW, BE and RC could read from without making any modifications to the code or folders. I had to separate the files that all versions shared into the above folder, and leave the *src* folder of all three versions mostly empty. 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**If you want to build any of the the versions RW, BE or RC, you have to copy the contents of the WEB_CHAT_SOURCE_CODE folder, and paste it in the *src* folder of that version of the app.** For RW, this src folder is called WEB_CHAT. You'll know you're pasting the files in the right folder, because there's a placeholder txt file there called *copy_contents_of_WEB_CHAT_SOURCE_CODE_here.txt*.
 
-### `npm run build`
+## Building RW and RC
+Run the following instructions in the RW or RC folder:
+```sh
+npm install
+npm start
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Building BE
+Run the following instructions in the BE folder:
+```sh
+yarn install
+```
+If you want to develop the browser extension and have your changes continuously update without having to rebuild, run: 
+```sh
+yarn watch
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+If you want to build the app, run: 
+```sh
+yarn build
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Next, you need to install the extension has an add-on in your web browser. **The file you want to import is the *manifest.json* file in the *build* folder, NOT the *manifest.json* in the top directory of BE**.
 
-### `npm run eject`
+For Firefox: 
+https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#Installing
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+For Chrome: 
+https://webkul.com/blog/how-to-install-the-unpacked-extension-in-chrome/
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-=======
-# ASCLEPIUS.TOOLS: AI assisted lifestyle diagnoses and advice
+**Note**: If you want to publish the extension to the Firefox or Chrome Add-on store, you must remove "unsafe-eval" in directive "script-src" and "connect-src" from the build manifest.json, they can be found in the Content Security Policy (CSP). The values are needed for auto reloading (i.e. yarn watch), but can't be used when distributing the extension. 
