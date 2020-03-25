@@ -5,7 +5,7 @@
   - **RW** - Full React Website for Asclepius Tools (*FULL_WEBSITE_VERSION*)
   - **BE** - A Web Extension for Firefox and Chrome that consists of just the Web Chat UI to Asclepius Tools as a browser drop- down (*BROWSER_EXTENSION_VERSION*)
   - **RC** - A version of the React Website that renders only the Web Chat page (*WEB_CHAT_ONLY_VERSION*)
-  - The source code for the Web Chat UI itself that is shareda cross the above three versions, that can be edited only once to update all versions (*WEB_CHAT_SOURCE_CODE*)
+  - The source code for the Web Chat UI itself that is shared across the above three versions, that can be edited only once to update all versions (*WEB_CHAT_SOURCE_CODE*)
 
 ### The RW is available at https://steviejeebies.github.io/SWENG2020/
 
@@ -29,7 +29,7 @@ Run the following instructions in the BE folder:
 ```sh
 yarn install
 ```
-If you want to develop the browser extension and have you changes continuously update without having to rebuild over and over, run: 
+If you want to develop the browser extension and have your changes continuously update without having to rebuild, run: 
 ```sh
 yarn watch
 ```
@@ -39,7 +39,7 @@ If you want to build the app, run:
 yarn build
 ```
 
-Next, you need to install the extension has an add-on in your web browser. **The file you want to import in the *manifest.json* file in the *build* folder, NOT the *manifest.json* in the top directory of BE**.
+Next, you need to install the extension has an add-on in your web browser. **The file you want to import is the *manifest.json* file in the *build* folder, NOT the *manifest.json* in the top directory of BE**.
 
 For Firefox: 
 https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#Installing
