@@ -1,0 +1,43 @@
+{
+  "name": "react-bootstrap",
+  "version": "0.1.0",
+  "private": false,
+  "homepage": "http://steviejeebies.github.io/AscToolsChat/",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^10.0.1",
+    "@testing-library/user-event": "^10.0.0",
+    "bootstrap": "^4.4.1",
+    "botframework-webchat": "^4.8.0",
+    "botframework-webchat-component": "^4.8.0",
+    "gh-pages": "^2.2.0",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.0",
+    "react-dom": "^16.13.1",
+    "react-expanding-textarea": "^2.2.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "react-scroll-to": "^3.0.0-beta.6",
+    "react-scrollable-feed": "^1.1.2",
+    "styled-components": "^5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+    },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
+  }
+}

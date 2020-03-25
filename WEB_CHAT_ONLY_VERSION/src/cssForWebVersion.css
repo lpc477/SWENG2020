@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Each of the following Classes has multiple values for widths, heights, or margins. This
+    is due to the fact that mobile devices do not treat vh and vw as predictably as desktop
+    web-browsers do, so we have to account for this across all devices
+*/
+
+footer {
+  background-color:#c1d5e0;
+  align-self: flex-end;
+  width: 100vw; /* Fallback for browsers that do not support Custom Properties */
+  height: 15vh; 
+  width: calc(var(--vw, 1vw) * 100);
+  height: calc(var(--vh, 1vh) * 15);
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  margin-top: calc(var(--vh, 2vh));
+  margin-bottom: calc(var(--vh, 2vh));
+  display: flex;
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.UserInput {
+  resize: none;
+  height: 100%;
+  width: 85vw; /* Fallback for browsers that do not support Custom Properties */
+  width: calc(var(--vw, 1vw) * 85);
+}
+
+.MessageList {
+  width: 100vw; /* Fallback for browsers that do not support Custom Properties */
+  height: 85vh; 
+  /*margin-top: 1vh;*/
+  width: calc(var(--vw, 1vw) * 100);
+  height: calc(var(--vh, 1vh) * 85);
+  /*margin-top: calc(var(--vh, 1vh));*/
+  display: flex;
+  flex-direction: column;
+}
+
+.WindowBackground {
+  background-color: #c1d5e0;
+  background-image: url("./image/logo-vector.svg");
+  background-size: 50vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  width: 100vw;
+  height: calc(var(--vh, 1vh) * 100);
+  width: calc(var(--vw, 1vw) * 100);
+  display: flex;
+  flex-direction: column;
+}
+

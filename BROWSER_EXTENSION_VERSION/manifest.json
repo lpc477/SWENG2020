@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "version": "1.0.0",
+  "name": "Asclepius Tools",
+  "short_name": "AscTools",
+  "description": "Web Chat for AscTools",
+  "default_locale": "en",
+  "options_ui": {
+    "page": "options.html"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "all_frames": false,
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "16": "image/icon-16x16.png",
+    "48": "image/icon-48x48.png",
+    "128": "image/icon-128x128.png"
+  },
+  "permissions": ["storage"],
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://*.botframework.com; object-src 'self' https://*.botframework.com; connect-src ws://localhost:*/ wss://*.botframework.com https://*.botframework.com;",
+  "web_accessible_resources": ["image/*"]
+}
