@@ -13,6 +13,7 @@ class AscToolsSite extends Component {
       <React.Fragment>
         <Router>
             <Switch>
+              <Route exact path="/AscToolsChat" component={Home} />
               <Route exact path="/" component={Home} />
               <Route path="/about" component={About} />
               <Route path="/contact" component={Contact} />

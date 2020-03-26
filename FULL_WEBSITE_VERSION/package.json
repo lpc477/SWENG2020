@@ -35,8 +35,7 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
-    },
+  ],
   "devDependencies": {
     "gh-pages": "^2.2.0"
   }
