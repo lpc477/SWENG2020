@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { NavigationBar } from './components/NavigationBar';
 import { Jumbotron } from './components/Jumbotron';
 import { Layout } from './components/Layout';
@@ -10,7 +11,7 @@ export const Home = () => (
      <header class="masthead text-center text-white">
     <div class="masthead-content">
       <div class="container">
-        <a href="App" class="btn btn-primary btn-xl rounded-pill mt-5">Begin Chat</a>
+        <Link to="/App" class="btn btn-primary btn-xl rounded-pill mt-5">Begin Chat</Link>
       </div>
     </div>
 

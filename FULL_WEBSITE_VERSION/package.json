@@ -1,5 +1,5 @@
 {
-  "name": "react-bootstrap",
+  "name": "asc-tools-chat",
   "version": "0.1.0",
   "private": false,
   "homepage": "http://steviejeebies.github.io/AscToolsChat/",
@@ -13,6 +13,7 @@
     "gh-pages": "^2.2.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
+    "react-device-detect": "^1.11.14",
     "react-dom": "^16.13.1",
     "react-expanding-textarea": "^2.2.0",
     "react-router-dom": "^5.1.2",
@@ -25,17 +26,25 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
     "gh-pages": "^2.2.0"
   }

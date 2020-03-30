@@ -6,23 +6,27 @@ import { Contact } from './Contact';
 import { NoMatch } from './NoMatch';
 import App from './WEB_CHAT/App';
 import './cssForWebVersion.css';
+import {isMobile} from 'react-device-detect';
 
 class AscToolsSite extends Component {
-  render() { 
+  renderContent = () => {
+    if (isMobile) {
+        return <App/>
+    }
     return (
-      <React.Fragment>
         <Router>
             <Switch>
               <Route exact path="/AscToolsChat" component={Home} />
-              <Route exact path="/" component={Home} />
               <Route path="/about" component={About} />
               <Route path="/contact" component={Contact} />
               <Route path="/App" component={App} />
               <Route component={NoMatch} />
             </Switch>
         </Router>
-      </React.Fragment>
     );
+}
+  render() { 
+    return this.renderContent();
   }
 }
 
