@@ -7,7 +7,7 @@
   - **RC** - A version of the React Website that renders only the Web Chat page (*WEB_CHAT_ONLY_VERSION*)
   - The source code for the Web Chat UI itself that is shared across the above three versions, that can be edited only once to update all versions (*WEB_CHAT_SOURCE_CODE*)
 
-### The RW is available at https://steviejeebies.github.io/SWENG2020/
+### The RW is available at https://steviejeebies.github.io/AscToolsChat/
 
 ## How to Use
 
