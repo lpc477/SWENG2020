@@ -9,6 +9,8 @@
 
 ### The RW is available at https://steviejeebies.github.io/AscToolsChat/
 
+The contents of the FULL_WEBSITE_VERSION and WEB_CHAT_SOURCE_CODE from this repo were combined and put in a new repo, found here: https://github.com/steviejeebies/AscToolsChat . This was required to deploy the application on Github Pages, which is what you are accessing with the above link.
+
 ## How to Use
 
 You will need **Node.js** and **Yarn** installed in order to develop or run the following locally.
