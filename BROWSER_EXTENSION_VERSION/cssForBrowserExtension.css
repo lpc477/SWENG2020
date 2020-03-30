@@ -60,7 +60,7 @@ footer {
 
 .WindowBackground {
   background-color: #c1d5e0;
-  background-image: url("/src/image/logo-vector.svg");
+  background-image: url("/image/logo-vector.svg");
   background-size: 50vh;
   background-repeat: no-repeat;
   background-position: center;
