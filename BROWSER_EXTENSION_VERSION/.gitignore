@@ -1,5 +1,5 @@
-src/src/*
-!src/src/copy_contents_of_WEB_CHAT_SOURCE_CODE_here.txt
+src/*
+!src/copy_contents_of_WEB_CHAT_SOURCE_CODE_here.txt
 
 .DS_Store
 .idea
