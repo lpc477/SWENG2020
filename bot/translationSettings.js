@@ -4,7 +4,7 @@ const TranslationSettings = {
     spanishEnglish: 'in',
     spanishSpanish: 'it',
     englishDutch: 'nl',
-    dutchEnglish: 'en',
+    dutchEnglish: 'dn',
     dutchDutch: 'nl'
 };
 

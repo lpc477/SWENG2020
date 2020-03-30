@@ -26,8 +26,8 @@ export const Home = () => (
         </div>
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
-            <h2 class="display-4">insert title</h2>
-            <p>nsert text, not finished as no pictures yet pictures will go in empty space</p>
+            <h2 class="display-4">Get Dietary information</h2>
+            <p>Enter your patient's diagnosis and find dietary advice</p>
           </div>
         </div>
       </div>
@@ -44,8 +44,8 @@ export const Home = () => (
         </div>
         <div class="col-lg-6">
           <div class="p-5">
-            <h2 class="display-4">insert title</h2>
-            <p>nsert text, not finished as no pictures yet</p>
+            <h2 class="display-4">Work in English, Spanish, or Dutch</h2>
+            <p>Type your language in the chat to use it instead!</p>
           </div>
         </div>
       </div>
@@ -62,8 +62,8 @@ export const Home = () => (
         </div>
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
-            <h2 class="display-4">nsert text</h2>
-            <p>nsert text, , not finished as no pictures yet</p>
+            <h2 class="display-4">Try our WebExtension</h2>
+            <p>Opens chat straight away if you need to find advice quick</p>
           </div>
         </div>
       </div>

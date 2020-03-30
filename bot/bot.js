@@ -25,6 +25,7 @@ class MyBot extends ActivityHandler {
             throw new Error('[MultilingualBot]: Missing parameter. languagePreferenceProperty is required');
         }
         this.userState = userState;
+        this.langState = false;
         this.languagePreferenceProperty = languagePreferenceProperty;
          // now create a qnaMaker connector.
          this.qnaMaker = new QnAMaker(configuration, qnaOptions);
@@ -46,35 +47,18 @@ class MyBot extends ActivityHandler {
                 await context.sendActivity(`Your current language code is: ${ lang }`);
             } //else{
  
-                // Show the user the possible options for language. The translation middleware
-                // will pick up the language selected by the user and
-                // translate messages both ways, i.e. user to bot and bot to user.
-                // Create an array with the supported languages.
-//                const cardActions = [
-//                    {
-//                        type: ActionTypes.PostBack,
-//                        title: 'Español',
-//                        value: englishSpanish
-//                    },
-//                    {
-//                        type: ActionTypes.PostBack,
-//                        title: 'English',
-//                        value: englishEnglish
-//                    },
-//                    {
-//                        type: ActionTypes.PostBack,
-//                        title: 'Nederlands',
-//                        value: englishDutch
-//                    }
-//                ];
-//                await context.sendActivity(reply);
 //            }
             // send user input to QnA Maker.
             const qnaResults = await this.qnaMaker.getAnswers(context);
     
             // If an answer was received from QnA Maker, send the answer back to the user.
             if (qnaResults[0]) {
-                await context.sendActivity( qnaResults[0].answer);
+                
+                if(qnaResults[0].score > 0.9 && qnaResults[0].answer != 'hello')
+                    await context.sendActivity( qnaResults[0].answer);
+                else if(this.langState === false);
+                    await context.sendActivity("Sorry, we couldn't find an answer, enter the diagnosis and we'll try to improve our service");
+                this.langState = true;
             }
             else {
                 // If no answers were returned from QnA Maker, reply with help.
@@ -86,35 +70,9 @@ class MyBot extends ActivityHandler {
 
         this.onMembersAdded(async (context, next) => {
             const membersAdded = context.activity.membersAdded;
-            const welcomeText = 'Hello and welcome!\n es = Español\nnl = Nederlands';
  
             for (let cnt = 0; cnt < membersAdded.length; ++cnt) {
                 if (membersAdded[cnt].id !== context.activity.recipient.id) {
-                    await context.sendActivity(MessageFactory.text(welcomeText, welcomeText));
-                   //const welcomeCard = CardFactory.adaptiveCard(WelcomeCard);
-            //        await context.sendActivity({ attachments: [welcomeCard] });
-            //        await context.sendActivity('This bot will introduce you to translation middleware. Say \'hi\' to get started.');
-            //            const cardActions = [
-            //        {
-            //            type: ActionTypes.PostBack,
-            //            title: 'Español',
-            //            value: englishSpanish
-            //        },
-            //        {
-            //            type: ActionTypes.PostBack,
-            //            title: 'English',
-            //            value: englishEnglish
-            //        },
-            //        {
-            //            type: ActionTypes.PostBack,
-            //            title: 'Nederlands',
-            //            value: englishDutch
-            //        }
-            //    ];
-            //
-            
-                const reply = context.activity.text;
-                await context.sendActivity(reply);
 
                 }
             }
@@ -138,6 +96,7 @@ function isLanguageChangeRequested(utterance) {
 
     // We know that the utterance is a language code. If the code sent in the utterance
     // is different from the current language, then a change was indeed requested
+    this.langState = true;
     utterance = utterance.toLowerCase().trim();
     return utterance === englishSpanish || utterance === englishEnglish || utterance === spanishSpanish || utterance === spanishEnglish || utterance === englishDutch || utterance === dutchDutch;
 }

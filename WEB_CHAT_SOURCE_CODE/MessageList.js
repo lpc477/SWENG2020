@@ -37,6 +37,13 @@ function MessageList() {
 
     activities.filter(({ type }) => type === 'message');
 
+    let today = new Date();
+    var init = <TextBox
+        key = '0'
+        user = 'bot'
+        time = {(today.getHours() - 1) + ':' + today.getMinutes() + ':' + today.getSeconds()}
+        message = 'Welcome to Asclepius Tools' />
+
     var textBoxes = activities.map(thisMessage => <TextBox
         key={thisMessage.id}
         user={thisMessage.from.role}
@@ -45,6 +52,7 @@ function MessageList() {
 
     return (
         <ScrollableFeed forceScroll="true" className="MessageList">
+            {init}
             {textBoxes}
         </ScrollableFeed>
     );

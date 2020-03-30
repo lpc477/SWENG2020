@@ -6,7 +6,7 @@ function TextBox(props) {
     var userName = "";
     if (props.user === "bot") {
         userName = "Asclepius.Tools";
-        thisStyle = {alignSelf: "flex-start", flexShrink:0, minWidth:"100px", marginLeft: "1vw"};
+        thisStyle = {alignSelf: "flex-start", flexShrink:0, minWidth:"100px", marginLeft: "1vw", whiteSpace: "pre-line"};
         
     }
     else{ // if(props.user = "user") 

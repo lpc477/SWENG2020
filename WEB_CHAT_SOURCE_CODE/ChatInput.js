@@ -1,6 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import { hooks } from 'botframework-webchat-component';
 import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 const { useSendMessage } = hooks;
 
@@ -34,12 +37,29 @@ function ChatInput() {
 		}
 	 }
 
+    const onClickHandler = event => {
+        const value = event.target.innerHTML;
+        if(value === "Nederlands")
+            sendMessage("nl");
+        if(value === "Español")
+            sendMessage("es");
+        if(value === "English")
+            sendMessage("en");
+    }
+
 	return (
 		<footer>
 				<form onSubmit={handleSubmit}>
 					<textarea className="UserInput" autoFocus={true} onKeyDown={onEnterPress} onChange={handleChange} value={sendBoxValue}/>
 				</form>
-				<Button variant="outline-secondary" onClick={handleSubmit}>Send</Button>
+				<ButtonGroup>
+                    <Button variant="outline-secondary" onClick={handleSubmit}>Send</Button>
+                    <DropdownButton as={ButtonGroup} title="lang" id="bg-nested-dropdown">
+                        <Dropdown.Item eventKey="1" value = "en" onClick = {onClickHandler}>English</Dropdown.Item>
+                        <Dropdown.Item eventKey="2" value = "es" onClick = {onClickHandler}>Español</Dropdown.Item>
+                        <Dropdown.Item eventKey="3" value = "nl" onClick = {onClickHandler}>Nederlands</Dropdown.Item>
+                    </DropdownButton>
+                </ButtonGroup>
 		</footer>);
 }
 
