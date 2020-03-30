@@ -55,7 +55,7 @@ function ChatInput() {
 				</form>
 				<ButtonGroup>
                     <Button variant="outline-secondary" onClick={handleSubmit}>Send</Button>
-                    <DropdownButton as={ButtonGroup} title="lang" id="bg-nested-dropdown">
+                    <DropdownButton as={ButtonGroup} alignRight title="lang" id="bg-nested-dropdown">
                         <Dropdown.Item eventKey="1" value = "en" onClick = {onClickHandler}>English</Dropdown.Item>
                         <Dropdown.Item eventKey="2" value = "es" onClick = {onClickHandler}>Español</Dropdown.Item>
                         <Dropdown.Item eventKey="3" value = "nl" onClick = {onClickHandler}>Nederlands</Dropdown.Item>

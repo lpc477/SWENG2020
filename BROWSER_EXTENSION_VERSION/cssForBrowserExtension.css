@@ -43,8 +43,8 @@ footer {
 .UserInput {
   resize: none;
   height: 100%;
-  width: 85vw; /* Fallback for browsers that do not support Custom Properties */
-  width: calc(var(--vw, 1vw) * 85);
+  width: 65vw; /* Fallback for browsers that do not support Custom Properties */
+  width: calc(var(--vw, 1vw) * 65);
 }
 
 .MessageList {

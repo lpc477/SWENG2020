@@ -43,7 +43,7 @@ function MessageList() {
         key = {i}
         user = 'bot'
         time = {(today.getHours() - 1) + ':' + today.getMinutes() + ':' + today.getSeconds()}
-        message = 'Welcome to Asclepius Tools' />
+        message = 'Welcome to Asclepius Tools\nEnter your diagnosis to recieve information on dietary and lifestyle changes.' />
 
     var textBoxes = activities.map(thisMessage => <TextBox
         key={++i}
