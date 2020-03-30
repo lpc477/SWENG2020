@@ -38,6 +38,7 @@ function ChatInput() {
 	 }
 
     const onClickHandler = event => {
+        event.preventDefault();
         const value = event.target.innerHTML;
         if(value === "Nederlands")
             sendMessage("nl");

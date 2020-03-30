@@ -38,14 +38,15 @@ function MessageList() {
     activities.filter(({ type }) => type === 'message');
 
     let today = new Date();
+    let i = 0;
     var init = <TextBox
-        key = '0'
+        key = {i}
         user = 'bot'
         time = {(today.getHours() - 1) + ':' + today.getMinutes() + ':' + today.getSeconds()}
         message = 'Welcome to Asclepius Tools' />
 
     var textBoxes = activities.map(thisMessage => <TextBox
-        key={thisMessage.id}
+        key={++i}
         user={thisMessage.from.role}
         time={thisMessage.timestamp.substring(11, 19)}
         message={thisMessage.text} />);

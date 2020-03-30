@@ -25,7 +25,6 @@ class MyBot extends ActivityHandler {
             throw new Error('[MultilingualBot]: Missing parameter. languagePreferenceProperty is required');
         }
         this.userState = userState;
-        this.langState = false;
         this.languagePreferenceProperty = languagePreferenceProperty;
          // now create a qnaMaker connector.
          this.qnaMaker = new QnAMaker(configuration, qnaOptions);
@@ -45,20 +44,20 @@ class MyBot extends ActivityHandler {
                 // selected language.
                 // If Spanish was selected by the user, the reply below will actually be shown in spanish to the user.
                 await context.sendActivity(`Your current language code is: ${ lang }`);
-            } //else{
+            } else{
  
-//            }
+//            
             // send user input to QnA Maker.
             const qnaResults = await this.qnaMaker.getAnswers(context);
+            
     
             // If an answer was received from QnA Maker, send the answer back to the user.
             if (qnaResults[0]) {
                 
                 if(qnaResults[0].score > 0.9 && qnaResults[0].answer != 'hello')
                     await context.sendActivity( qnaResults[0].answer);
-                else if(this.langState === false);
+                else 
                     await context.sendActivity("Sorry, we couldn't find an answer, enter the diagnosis and we'll try to improve our service");
-                this.langState = true;
             }
             else {
                 // If no answers were returned from QnA Maker, reply with help.
@@ -66,6 +65,7 @@ class MyBot extends ActivityHandler {
                     + ` such as Fever,dizziness, shortness of breath`);
             }
             await next();
+            }
         });
 
         this.onMembersAdded(async (context, next) => {
@@ -96,7 +96,6 @@ function isLanguageChangeRequested(utterance) {
 
     // We know that the utterance is a language code. If the code sent in the utterance
     // is different from the current language, then a change was indeed requested
-    this.langState = true;
     utterance = utterance.toLowerCase().trim();
     return utterance === englishSpanish || utterance === englishEnglish || utterance === spanishSpanish || utterance === spanishEnglish || utterance === englishDutch || utterance === dutchDutch;
 }
