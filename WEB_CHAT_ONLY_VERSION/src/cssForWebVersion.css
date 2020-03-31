@@ -29,17 +29,19 @@ footer {
   margin-top: calc(var(--vh, 2vh));
   margin-bottom: calc(var(--vh, 2vh));
   display: flex;
-  flex-shrink: 1;
-  flex-grow: 1;
   flex-direction: row;
   justify-content: center;
+}
+
+.FormContainer {
+  height: 100%;
+  flex-grow: 1;
 }
 
 .UserInput {
   resize: none;
   height: 100%;
-  width: 85vw; /* Fallback for browsers that do not support Custom Properties */
-  width: calc(var(--vw, 1vw) * 85);
+  width: 100%;
 }
 
 .MessageList {
