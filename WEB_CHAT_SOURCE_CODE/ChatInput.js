@@ -50,7 +50,7 @@ function ChatInput() {
 
 	return (
 		<footer>
-				<form onSubmit={handleSubmit}>
+				<form className="FormContainer" onSubmit={handleSubmit}>
 					<textarea className="UserInput" autoFocus={true} onKeyDown={onEnterPress} onChange={handleChange} value={sendBoxValue}/>
 				</form>
 				<ButtonGroup>
