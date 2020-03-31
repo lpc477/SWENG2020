@@ -40,11 +40,15 @@ footer {
   justify-content: center;
 }
 
+.FormContainer {
+  height: 100%;
+  flex-grow: 1;
+}
+
 .UserInput {
   resize: none;
   height: 100%;
-  width: 65vw; /* Fallback for browsers that do not support Custom Properties */
-  width: calc(var(--vw, 1vw) * 65);
+  width: 100%;
 }
 
 .MessageList {
