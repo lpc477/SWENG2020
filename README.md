@@ -7,7 +7,7 @@
   - **RC** - A version of the React Website that renders only the Web Chat page (*WEB_CHAT_ONLY_VERSION*)
   - The source code for the Web Chat UI itself that is shared across the above three versions, that can be edited only once to update all versions (*WEB_CHAT_SOURCE_CODE*)
 
-### The RW is available at https://steviejeebies.github.io/AscToolsChat/
+### The RW is available at https://asclepius.tools
 
 The contents of the FULL_WEBSITE_VERSION and WEB_CHAT_SOURCE_CODE from this repo were combined and put in a new repo, found here: https://github.com/steviejeebies/AscToolsChat . This was required to deploy the application on Github Pages, which is what you are accessing with the above RW link.
 
