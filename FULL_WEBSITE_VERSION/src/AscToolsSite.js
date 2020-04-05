@@ -18,7 +18,7 @@ class AscToolsSite extends Component {
     return (
         <Router>
             <Switch>
-              <Route exact path="/AscToolsChat" component={Home} />
+              <Route exact path="/" component={Home} />
               <Route path="/about" component={About} />
               <Route path="/contact" component={Contact} />
               <Route path="/Chat" component={Login} />
