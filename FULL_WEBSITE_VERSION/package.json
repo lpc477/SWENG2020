@@ -2,7 +2,7 @@
   "name": "asc-tools-chat",
   "version": "0.1.0",
   "private": false,
-  "homepage": "http://steviejeebies.github.io/AscToolsChat/",
+  "homepage": "https://asclepius.tools",
   "dependencies": {
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^10.0.1",
