@@ -32,7 +32,7 @@ export const NavigationBar = () => (
           </Nav.Item>
          
             <Nav.Link>
-              <Link to="/App">Chat</Link>
+              <Link to="/Chat">Chat</Link>
             </Nav.Link>
           
           <Nav.Item>

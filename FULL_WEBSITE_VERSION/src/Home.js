@@ -11,7 +11,7 @@ export const Home = () => (
      <header class="masthead text-center text-white">
     <div class="masthead-content">
       <div class="container">
-        <Link to="/App" class="btn btn-primary btn-xl rounded-pill mt-5">Begin Chat</Link>
+        <Link to="/Chat" class="btn btn-primary btn-xl rounded-pill mt-5">Begin Chat</Link>
       </div>
     </div>
 
