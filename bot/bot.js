@@ -54,10 +54,10 @@ class MyBot extends ActivityHandler {
             // If an answer was received from QnA Maker, send the answer back to the user.
             if (qnaResults[0]) {
                 
-                if(qnaResults[0].score > 0.9 && qnaResults[0].answer != 'hello')
+                if(qnaResults[0].score > 0.6 && qnaResults[0].answer != 'hello')
                     await context.sendActivity( qnaResults[0].answer);
                 else 
-                    await context.sendActivity("Sorry, we couldn't find an answer, enter the diagnosis and we'll try to improve our service");
+                    await context.sendActivity("Sorry, we couldn't determine any advice");
             }
             else {
                 // If no answers were returned from QnA Maker, reply with help.
