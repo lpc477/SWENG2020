@@ -10,7 +10,7 @@ async function getDirectLineToken() {
 //  mode: 'no-cors',
   headers: {
 //      'Content-Type': 'application/json',
-      'Authorization': 'Bearer jnLsvivnLz0.YXh4pTEiXu_VSWzg6aEHwmPpVMPvq_Tkg8T51EHsR7A'
+      'Authorization': 'Bearer iQ0RbsV7tfA.Iv9w0NYvH7OoZJxqilYyZMdbK-xLhYlco0piDalWT00'
       }});
   const { token } = await res.json();
 
