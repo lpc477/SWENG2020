@@ -4,6 +4,7 @@ import { hooks } from 'botframework-webchat-component';
 import ScrollableFeed from 'react-scrollable-feed';
 
 const { useActivities } = hooks;
+var a = null;
 
 function MessageList() {
     // activities are the array of all messages to display on the screen
@@ -11,6 +12,7 @@ function MessageList() {
     // build the app and open the developers options in firefox
 
     const [activities] = useActivities();
+    a = useActivities();
 
     console.log(activities);
 
@@ -61,5 +63,4 @@ function MessageList() {
         </ScrollableFeed>
     );
 }
-
-export default MessageList;
+export { MessageList, a }

@@ -8,14 +8,14 @@ import { Components } from 'botframework-webchat-component';
 
 // import from other files in our AscTools project
 import ChatInput from "./ChatInput.js";
-import MessageList from "./MessageList.js";
-
+import {MessageList} from "./MessageList.js";
 // import from React-Boostrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-
+import {a} from './MessageList';
+import jsPDF from 'jspdf';
 var secret = process.env.DIRECT_LINE_SECRET;
 
 const initializeDirectLine = async setDirectLine => {
@@ -41,6 +41,45 @@ function App() {
     }
     return next(action)
   };
+
+// THIS METHOD IS USED FOR PRINTING OUT THE LIFESTYLE ADVICE FROM THE CHATBOT
+    const printer = event => {
+        console.log("button pressed ");
+        var y = new Array( Object.values(a[a.length -1 ][0]));
+        var x = y[0][10];
+        var doc = new jsPDF('p', 'pt');
+        doc.setProperties({
+            title: 'LifeStyle Advice',
+            subject: 'Advice for patient',
+            author: 'Asclepius Tool',
+            keywords: 'generated, javascript, web 2.0, ajax',
+            creator: '--'
+        });
+        doc.setFont('courier')
+        doc.setFontType('normal')
+        doc.text(180, 50, 'Lifestyle Advice Report')
+        doc.text(20,70, "Advice : ")
+        doc.text(20, 100, x )
+        //different types of fonts can be used for styling the pdf!!!!
+
+        // doc.text(20, 20, 'This is the default font.')
+
+        // doc.setFont('times')
+        // doc.setFontType('italic')
+        // doc.text(20, 40, 'This is times italic.')
+
+        // doc.setFont('helvetica')
+        // doc.setFontType('bold')
+        // doc.text(20, 50, 'This is helvetica bold.')
+
+        // doc.setFont('courier')
+        // doc.setFontType('bolditalic')
+        // doc.text(20, 60, 'This is courier bolditalic.')
+        
+        // Save the Data and downloads it to the browser
+        doc.save('LifesytleAdvice.pdf')
+    }
+
 
   // store is a state used by the imported 'Components' library
   const [store, setStore] = useState(createStore({}, storeMiddleware));
@@ -73,7 +112,7 @@ function App() {
                   <a href="https://asclepius.tools/" style={{marginLeft: "1vw"}}><b>Asclepius.Tools</b></a>
                     <DropdownButton as={ButtonGroup} title="Options" id="bg-nested-dropdown" style={{marginTop: "1vh", marginRight: "1vw"}}>
                         <Dropdown.Item eventKey="1" onClick={disconnect}>New Patient</Dropdown.Item>
-                        <Dropdown.Item eventKey="2">Print Advice</Dropdown.Item>
+                        <Dropdown.Item eventKey="2" onClick={printer}>Print Advice</Dropdown.Item>
                     </DropdownButton>
                 </div>
                 <MessageList/>
