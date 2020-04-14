@@ -9,6 +9,8 @@ import { Components } from 'botframework-webchat-component';
 // import from other files in our AscTools project
 import ChatInput from "./ChatInput.js";
 import {MessageList} from "./MessageList.js";
+import './chat.css';
+
 // import from React-Boostrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
@@ -101,20 +103,29 @@ function App() {
 		let vw = window.innerWidth * 0.01;
 		document.documentElement.style.setProperty('--vh', `${vh}px`);
 		document.documentElement.style.setProperty('--vw', `${vw}px`);
-	  });
+    });
+    
+  // Normally I would have put this in another .js file in this folder, but this requires
+  // some methods and objects that are in this App.js file that would make for harder-to-read
+  // and maintain code if I were to pass objects and methods back and forth between the files.
+  function AscHeader () {
+    return (
+      <div className="AscToolsHeader">
+        <homepageLink><a href="https://asclepius.tools/" style={{marginLeft: "1vw"}}><b>Asclepius.Tools</b></a></homepageLink>
+          <DropdownButton as={ButtonGroup} title="Options" id="bg-nested-dropdown" style={{marginTop: "1vh", marginRight: "1vw"}}>
+            <Dropdown.Item eventKey="1" onClick={disconnect}>New Patient</Dropdown.Item>
+            <Dropdown.Item eventKey="2" onClick={printer}>Print Advice</Dropdown.Item>
+          </DropdownButton>
+      </div>
+    );
+  }
 
   return (
     <div className="WindowBackground">
           {!!directLine &&
             <Components.Composer directLine={directLine} store={store}>
               <div className="ChatContentContainer">
-                <div className="AscToolsHeader">
-                  <a href="https://asclepius.tools/" style={{marginLeft: "1vw"}}><b>Asclepius.Tools</b></a>
-                    <DropdownButton as={ButtonGroup} title="Options" id="bg-nested-dropdown" style={{marginTop: "1vh", marginRight: "1vw"}}>
-                        <Dropdown.Item eventKey="1" onClick={disconnect}>New Patient</Dropdown.Item>
-                        <Dropdown.Item eventKey="2" onClick={printer}>Print Advice</Dropdown.Item>
-                    </DropdownButton>
-                </div>
+                <AscHeader />
                 <MessageList/>
                 <ChatInput />
               </div>

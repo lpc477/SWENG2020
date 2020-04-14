@@ -49,7 +49,7 @@ function ChatInput() {
     }
 
 	return (
-		<footer>
+		<footerInput>
 				<form style={{marginLeft: "1vw"}} className="FormContainer" onSubmit={handleSubmit}>
 					<textarea className="UserInput" autoFocus={true} onKeyDown={onEnterPress} onChange={handleChange} value={sendBoxValue}/>
 				</form>
@@ -61,7 +61,7 @@ function ChatInput() {
                         <Dropdown.Item eventKey="3" value = "nl" onClick = {onClickHandler}>Nederlands</Dropdown.Item>
                     </DropdownButton>
                 </ButtonGroup>
-		</footer>);
+		</footerInput>);
 }
 
 export default ChatInput;
