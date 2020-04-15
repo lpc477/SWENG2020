@@ -4,6 +4,7 @@ import { hooks } from 'botframework-webchat-component';
 import ScrollableFeed from 'react-scrollable-feed';
 
 const { useActivities } = hooks;
+var a = null;
 
 function MessageList() {
     // activities are the array of all messages to display on the screen
@@ -11,6 +12,7 @@ function MessageList() {
     // build the app and open the developers options in firefox
 
     const [activities] = useActivities();
+    a = useActivities();
 
     console.log(activities);
 
@@ -37,26 +39,28 @@ function MessageList() {
 
     activities.filter(({ type }) => type === 'message');
 
-    let today = new Date();
+    //let today = new Date();
     let i = 0;
-    var init = <TextBox
-        key = {i}
-        user = 'bot'
-        time = {(today.getHours() - 1) + ':' + today.getMinutes() + ':' + today.getSeconds()}
-        message = 'Welcome to Asclepius Tools\nEnter your diagnosis to recieve information on dietary and lifestyle changes.' />
+    // var init = <TextBox
+    //     key = {i}
+    //     user = 'bot'
+    //     time = {(today.getHours() - 1) + ':' + today.getMinutes() + ':' + today.getSeconds()}
+    //     message = 'Welcome to Asclepius Tools\nEnter your diagnosis to recieve information on dietary and lifestyle changes.' />
 
     var textBoxes = activities.map(thisMessage => <TextBox
-        key={++i}
-        user={thisMessage.from.role}
-        time={thisMessage.timestamp.substring(11, 19)}
-        message={thisMessage.text} />);
+                                                        key={++i}
+                                                        message={thisMessage} 
+                                                    />);
+
+        // key={++i}
+        // user={thisMessage.from.role}
+        // time={thisMessage.timestamp.substring(11, 19)}
+        // message={thisMessage.text}
 
     return (
         <ScrollableFeed forceScroll="true" className="MessageList">
-            {init}
             {textBoxes}
         </ScrollableFeed>
     );
 }
-
-export default MessageList;
+export { MessageList, a }

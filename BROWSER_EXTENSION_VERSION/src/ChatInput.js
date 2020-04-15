@@ -35,7 +35,7 @@ function ChatInput() {
 			sendMessage(sendBoxValue);
 			setSendBoxValue('');
 		}
-	 }
+	}
 
     const onClickHandler = event => {
         event.preventDefault();
@@ -49,19 +49,19 @@ function ChatInput() {
     }
 
 	return (
-		<footer>
-				<form onSubmit={handleSubmit}>
+		<footerInput>
+				<form style={{marginLeft: "1vw"}} className="FormContainer" onSubmit={handleSubmit}>
 					<textarea className="UserInput" autoFocus={true} onKeyDown={onEnterPress} onChange={handleChange} value={sendBoxValue}/>
 				</form>
-				<ButtonGroup>
+				<ButtonGroup style={{marginRight: "1vw"}}>
                     <Button variant="outline-secondary" onClick={handleSubmit}>Send</Button>
-                    <DropdownButton as={ButtonGroup} alignRight title="lang" id="bg-nested-dropdown">
+                    <DropdownButton as={ButtonGroup} variant="outline-secondary" alignRight title="lang" id="bg-nested-dropdown">
                         <Dropdown.Item eventKey="1" value = "en" onClick = {onClickHandler}>English</Dropdown.Item>
                         <Dropdown.Item eventKey="2" value = "es" onClick = {onClickHandler}>Español</Dropdown.Item>
                         <Dropdown.Item eventKey="3" value = "nl" onClick = {onClickHandler}>Nederlands</Dropdown.Item>
                     </DropdownButton>
                 </ButtonGroup>
-		</footer>);
+		</footerInput>);
 }
 
 export default ChatInput;
