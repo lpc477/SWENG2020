@@ -36,6 +36,7 @@
     "botframework-webchat": "^4.8.0",
     "classnames": "^2.2.6",
     "core-js": "^3.3.3",
+    "html2canvas": "^1.0.0-rc.5",
     "jquery": "^3.4.1",
     "jspdf": "^1.5.3",
     "lodash.omit": "^4.5.0",
