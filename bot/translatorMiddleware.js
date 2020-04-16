@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+
 const { ActivityTypes } = require('botbuilder');
 const { TranslationSettings } = require('./translationSettings');
 
@@ -30,7 +33,9 @@ class TranslatorMiddleware {
         const translate = await this.shouldTranslate(context);
 
         if (translate) {
-            await this.translateMessageActivity(context.activity, DEFAULT_LANGUAGE);
+            if(context.activity.tyoe === ActivityTypes.Message){
+                await this.translateMessageActivity(context.activity, DEFAULT_LANGUAGE);
+            }
         };
 
         await context.onSendActivities(async (context, activities, nextSend) => {
@@ -52,7 +57,13 @@ class TranslatorMiddleware {
 
     async translateMessageActivity(activity, targetLocale) {
         if (activity.type === ActivityTypes.Message) {
-            activity.text = await this.translator.translate(activity.text, targetLocale);
+            if(activity.hasOwnProperty("attachments") && !activity.attachment){
+                activity.attachments[0].content.title = await this.translator.translate(activity.attachments[0].content.title, targetLocale);
+                    
+            }
+            else{
+                activity.text = await this.translator.translate(activity.text, targetLocale);
+            }
         }
     }
 
