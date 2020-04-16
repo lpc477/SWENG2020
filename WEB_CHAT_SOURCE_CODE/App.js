@@ -91,6 +91,8 @@ doc.setFontType('normal')
          doc.save('LifesytleAdvice.pdf')
   }
 
+  //------------------------------printing advice end-----------------------------------//
+
 
   // store is a state used by the imported 'Components' library
   const [store, setStore] = useState(createStore({}, storeMiddleware));
