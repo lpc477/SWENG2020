@@ -1,4 +1,4 @@
-# ddd
+# Asclepius Tools Bot
 
 h
 
@@ -43,6 +43,14 @@ This bot has been created using [Bot Framework](https://dev.botframework.com), i
 
 To learn more about deploying a bot to Azure, see [Deploy your bot to Azure](https://aka.ms/azuredeployment) for a complete list of deployment instructions.
 
+##
+    To make changes to the bot appear on other versions remove the bot.zip file.
+    ```bash 
+    zip -r bot.zip .
+    az webapp deployment source config-zip --resource-group <your resource group> --name <your bot name> --src ./bot.zip
+    ```
+##
+    For creating your own Azure resources to allow for bot development see the bot transfer instructions included
 
 ## Further reading
 
