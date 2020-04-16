@@ -18,6 +18,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import {a} from './MessageList';
 import jsPDF from 'jspdf';
+import logo from '../WEB_CHAT/image/icon-128x128.png';
 var secret = process.env.DIRECT_LINE_SECRET;
 
 const initializeDirectLine = async setDirectLine => {
@@ -45,42 +46,50 @@ function App() {
   };
 
 // THIS METHOD IS USED FOR PRINTING OUT THE LIFESTYLE ADVICE FROM THE CHATBOT
-    const printer = event => {
-        console.log("button pressed ");
-        var y = new Array( Object.values(a[a.length -1 ][0]));
-        var x = y[0][10];
-        var doc = new jsPDF('p', 'pt');
-        doc.setProperties({
-            title: 'LifeStyle Advice',
-            subject: 'Advice for patient',
-            author: 'Asclepius Tool',
-            keywords: 'generated, javascript, web 2.0, ajax',
-            creator: '--'
-        });
-        doc.setFont('courier')
-        doc.setFontType('normal')
-        doc.text(180, 50, 'Lifestyle Advice Report')
-        doc.text(20,70, "Advice : ")
-        doc.text(20, 100, x )
-        //different types of fonts can be used for styling the pdf!!!!
-
-        // doc.text(20, 20, 'This is the default font.')
-
-        // doc.setFont('times')
-        // doc.setFontType('italic')
-        // doc.text(20, 40, 'This is times italic.')
-
-        // doc.setFont('helvetica')
-        // doc.setFontType('bold')
-        // doc.text(20, 50, 'This is helvetica bold.')
-
-        // doc.setFont('courier')
-        // doc.setFontType('bolditalic')
-        // doc.text(20, 60, 'This is courier bolditalic.')
-        
-        // Save the Data and downloads it to the browser
-        doc.save('LifesytleAdvice.pdf')
+    const printer = event => {      
+//------------------------------extracting just advice messages-----------------------------------//
+var arr = new Array();
+var loop1 = 0;
+for(var i = a[0].length-1; i >= 0; i--){
+  if(a[0][i].hasOwnProperty('text')){
+    if(a[0][i].text.includes('Confidence score : ')){
+      if(a[0][i-1].hasOwnProperty('text')){
+        arr[loop1] = a[0][i-1].text;
+        loop1++;
+      }
+      else {
+        arr[loop1] = a[0][i-1].attachments[0].content.title;
+        loop1++;
+      }
     }
+  }
+} 
+var doc = new jsPDF('p', 'mm', "a4");
+var options = {
+  pagesplit: true
+};
+//------------------------------extracting just advice messages ends-----------------------------------//
+//------------------------------initial doc set up-----------------------------------//
+doc.setFont('courier')
+doc.setFontType('normal')
+
+//------------------------------initial doc set up end-----------------------------------//
+//------------------------------printing advice-----------------------------------//
+    var y = new String();
+    var loop2 = 1;
+    for(var loop1 = arr.length-1; loop1 >= 0; loop1--){
+      doc.text(65, 23, 'Lifestyle Advice Report',)
+      doc.text(90, 35, 'Page ' + loop2)
+      doc.addImage(logo, 'png', 20, 20, 20, 20); 
+      doc.addImage(logo, 'png', 170, 20, 20, 20);  
+      doc.text('The text', doc.internal.pageSize.width, 50, null, null, 'left');
+      doc.text(17,50, "Advice : ");
+      doc.text(17,60, doc.splitTextToSize(arr[loop1]), {maxWidth: 165, align: "justify"})
+      if(loop1 != 0)doc = doc.addPage();
+      loop2++;
+    }
+         doc.save('LifesytleAdvice.pdf')
+  }
 
 
   // store is a state used by the imported 'Components' library
