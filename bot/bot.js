@@ -27,6 +27,8 @@ class MyBot extends ActivityHandler {
         this.userState = userState;
         this.languagePreferenceProperty = languagePreferenceProperty;
          // now create a qnaMaker connector.
+         qnaOptions.scoreThreshold = 0.3;
+         qnaOptions.top = 3;
          this.qnaMaker = new QnAMaker(configuration, qnaOptions);
         // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
         this.onMessage(async (context, next) => {
@@ -47,15 +49,45 @@ class MyBot extends ActivityHandler {
             } else{
  
 //            
-            // send user input to QnA Maker.
+            // send user input to QnA Maker
             const qnaResults = await this.qnaMaker.getAnswers(context);
-            
     
             // If an answer was received from QnA Maker, send the answer back to the user.
             if (qnaResults[0]) {
-                
-                if(qnaResults[0].score > 0.6 && qnaResults[0].answer != 'hello')
-                    await context.sendActivity( qnaResults[0].answer);
+                if(qnaResults[0].score > 0.6 && qnaResults[0].answer != 'hello'){
+
+                    var context2 = qnaResults[0].context;
+                    var prompts = context2.prompts;
+                    var answer = qnaResults[0].answer
+                    var card = CardFactory.heroCard(
+                        answer,
+                       [],
+                       prompts.map(prompt => ({
+                           type: 'messageBack',
+                           title: prompt.displayText,
+                           displayText: prompt.displayText,
+                           text: prompt.displayText,
+                           value: { qnaId: prompt.qnaId }
+                       }))
+                   );
+                   answer = MessageFactory.attachment(card);
+                   
+                   await context.sendActivity(answer);
+                   var score = "Confidence score : " + qnaResults[0].score;
+                   await context.sendActivity(score);
+                   if(qnaResults[1]){
+                        var alt = "Alternative answer 1: " + qnaResults[1].answer;
+                        score = "Confidence score : " + qnaResults[1].score;
+                        await context.sendActivity(alt);
+                        await context.sendActivity(score);
+                   }
+                   if(qnaResults[2]){
+                        var alt = "Alternative answer 2: " + qnaResults[2].answer;
+                        score = "Confidence score : " + qnaResults[2].score;
+                        await context.sendActivity(alt);
+                        await context.sendActivity(score);
+                    }
+               }
                 else 
                     await context.sendActivity("Sorry, we couldn't determine any advice");
             }
